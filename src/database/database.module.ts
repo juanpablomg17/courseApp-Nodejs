@@ -4,6 +4,7 @@ import config from 'src/config/config';
 import { ConfigType } from '@nestjs/config';
 import 'dotenv/config';
 import { Users } from '../infrastucture/repository/user/user.model'
+import { Courses } from '../infrastucture/repository/course/course-model'
 
 
 @Module({
@@ -27,7 +28,7 @@ import { Users } from '../infrastucture/repository/user/user.model'
         username: 'root',
         password: '123456',
         database: 'coursedb',
-        entities: [Users],
+        entities: [Users, Courses],
         synchronize: true
       }
     ),

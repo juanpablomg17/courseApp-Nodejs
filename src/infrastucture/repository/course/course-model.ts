@@ -1,15 +1,12 @@
 import { Column, Entity, PrimaryColumn} from 'typeorm'
 
 @Entity(
-    'users'
+    'courses'
 )
-export class Users {
+export class Courses {
     @PrimaryColumn({unique: true, generated: 'uuid'})
     id: string;
 
-    @Column({type: 'varchar', length: 255})
-    fullname: string;
-
     @Column({type: 'varchar', length: 255, unique: true})
-    email: string;
+    name: string;
 }

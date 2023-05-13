@@ -5,6 +5,7 @@ import { ApproveCourseDto } from '../../use-case/user/dto/approve-course.dto'
 import { EnrollCourseDto } from '../../use-case/user/dto/enroll-course.dto'
 
 import { GetAllUsersUseCase } from '../../use-case/user/get-user-usecase';
+import { CreateUserUseCase } from '../../use-case/user/create-user-usecase';
 import { UserDto } from 'src/application/use-case/user/dto/user.dto';
 
 
@@ -13,13 +14,12 @@ import { UserDto } from 'src/application/use-case/user/dto/user.dto';
 @Controller('user')
 export class UserController {
     constructor(
-        private readonly getAllUserUseCase: GetAllUsersUseCase
+        private readonly getAllUserUseCase: GetAllUsersUseCase,
+        private readonly createUserUseCase: CreateUserUseCase
     ) { }
     @Post('')
     async createUser(@Body() request: CreateUserDto) {
-        return {
-            message: 'User created successfully'
-        }
+        return await this.createUserUseCase.execute(request);
     }
 
     @Get('')
