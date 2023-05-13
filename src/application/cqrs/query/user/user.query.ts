@@ -1,5 +1,5 @@
-import { GetAllUsersHandler } from './get-all-users.handlers';
+import { GetUsersHandler } from './get-users.handlers';
 
 export const UserQuery = [
-    GetAllUsersHandler,
+    GetUsersHandler,
 ];
