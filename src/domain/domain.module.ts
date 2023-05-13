@@ -1,11 +1,14 @@
 import { Module } from '@nestjs/common';
-import { CourseService } from '../domain/course/service/course.service'
+import { CourseService } from './course/service/course.service'
+import { UserService } from './user/services/user.service'
 @Module({
   providers: [
-    CourseService
+    CourseService,
+    UserService
   ],
   exports: [
-    CourseService
+    CourseService,
+    UserService
   ],
 })
 export class DomainModule {}

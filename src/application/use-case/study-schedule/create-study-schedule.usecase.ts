@@ -38,7 +38,7 @@ export class CreateStudyScheduleUseCase implements UseCase<Input, Output> {
             let userModel: Users;
 
             const user = await this.getUserUseCase.execute({ id: input.userId });
-            if (!user || user.length === 0) {
+            if (user.length === 0) {
                 throw new HttpException('Cannot create study schedule: User not found', HttpStatus.BAD_REQUEST);
             }
             userModel = UserMapper.toModel(user[0]);
