@@ -1,5 +1,5 @@
-import { GetAllCoursesHandler } from './get-all-courses.handlers';
+import { GetCoursesHandler } from './get-course.handlers'
 
 export const CourseQuery = [
-    GetAllCoursesHandler,
+    GetCoursesHandler
 ];

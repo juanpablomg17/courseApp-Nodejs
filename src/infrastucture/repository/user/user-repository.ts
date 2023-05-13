@@ -1,29 +1,40 @@
 import { InjectRepository } from '@nestjs/typeorm';
 
 import { IUserRepository } from '../../../domain/interface/IUser';
-import { Repository } from 'typeorm'
+import { FindOptionsWhere, Repository } from 'typeorm'
 import { Users } from './user.model';
 
+import { TypeGetUserDto } from '../../../application/use-case/user/dto/get-user.dto'
 
 
-type QueryFilter = string | Record<string, string | boolean>;
 
-export class UserRepository implements IUserRepository<string, Users, unknown | Users>{
+type QueryFilter = TypeGetUserDto
+
+export class UserRepository implements IUserRepository<QueryFilter, Users, unknown | Users>{
 
     constructor(@InjectRepository(Users) private userRepository: Repository<Users>) { }
 
 
-    async getAll(filter?: string): Promise<Users[]> {
+    async getAll(filter?: QueryFilter): Promise<Users[]> {
         try {
             return this.userRepository.find();
         } catch (error) {
             console.log(error)
         }
     }
-    getByKey(filter: string): Promise<Users[]> {
-        throw new Error('Method not implemented.');
+    getByKey(filter: QueryFilter): Promise<Users[]> {
+        try {
+            const findOptionsUser: FindOptionsWhere<Users> = {
+                id: filter.id,
+                fullname: filter.fullname,
+                email: filter.email
+            }
+            return this.userRepository.findBy(findOptionsUser);
+        } catch (error) {
+            console.log('HOUSTON WE HAVE A PROBLEM IN UserRepository: ERROR: ', error)
+        }
     }
-    getInside?(filter: string): Promise<Users[]> {
+    getInside?(filter: QueryFilter): Promise<Users[]> {
         throw new Error('Method not implemented.');
     }
     save(input: Users): Promise<Users> {

@@ -28,6 +28,7 @@ export class CreateUserUseCase implements UseCase<Input, Output> {
             const userModel = UserMapper.toPersistance(input);
 
             const response = await this.commandBus.execute(new CreateUserCommand(userModel));
+            return response
         } catch (error) {
             console.log(error)
         }

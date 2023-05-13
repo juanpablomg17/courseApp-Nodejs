@@ -4,7 +4,7 @@ import { Column, Entity, PrimaryColumn} from 'typeorm'
     'users'
 )
 export class Users {
-    @PrimaryColumn({unique: true, generated: 'uuid'})
+    @PrimaryColumn({unique: true, primary: true})                                                                                   
     id: string;
 
     @Column({type: 'varchar', length: 255})

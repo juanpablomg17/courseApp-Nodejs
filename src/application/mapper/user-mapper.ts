@@ -8,7 +8,15 @@ export class UserMapper {
     public static toPersistance(user: CreateUserDto): Users {
         return  {
             id: uuidv4(15),
-            fullname: user.fullName,
+            fullname: user.fullname,
+            email: user.email
+        }
+    }
+
+    public static toModel(user: UserDto): Users {
+        return  {
+            id: user.id,
+            fullname: user.fullname,
             email: user.email
         }
     }

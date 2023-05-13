@@ -2,7 +2,7 @@ import { Inject } from '@nestjs/common';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 
 import { ICourseRepository, COURSE_REPOSITORY } from '../../../../domain/interface/ICourse';
-import { Courses } from '../../../../infrastucture/repository/course/course-model';
+import { Courses } from '../../../../infrastucture/repository/course/course.model';
 import { CreateCourseCommand } from './create-course.command';
 
 @CommandHandler(CreateCourseCommand)

@@ -5,7 +5,7 @@ export class CreateUserDto {
 
     @ApiProperty()
     @IsString()
-    fullName: string;
+    fullname: string;
 
     @ApiProperty()
     @IsString()

@@ -9,7 +9,6 @@ import { InfrastructureModule } from './infrastucture/infrastucture.module';
 import { DataBaseModule } from './database/database.module';
 import config from './config/config';
 import { enviroments } from './config/environments';
-import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
     imports: [

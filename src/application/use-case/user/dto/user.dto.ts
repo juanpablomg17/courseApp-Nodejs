@@ -8,7 +8,7 @@ export class UserDto {
 
     @ApiProperty()
     @IsString()
-    fullName: string;
+    fullname: string;
 
     @ApiProperty()
     @IsString()

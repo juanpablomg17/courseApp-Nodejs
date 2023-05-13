@@ -5,7 +5,7 @@ export class ApproveCourseDto {
 
     @ApiProperty()
     @IsString()
-    fullName: string;
+    fullname: string;
 
     @ApiProperty()
     @IsString()

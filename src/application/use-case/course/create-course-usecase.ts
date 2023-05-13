@@ -1,5 +1,5 @@
-import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
-import { CommandBus, QueryBus } from '@nestjs/cqrs';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
+import { CommandBus, } from '@nestjs/cqrs';
 
 import { CreateCourseCommand } from '../../cqrs/command/course/create-course.command'
 import { CouseMapper } from '../../mapper/course-mapper';
@@ -15,7 +15,6 @@ type Output = void
 export class CreateCourseUsecase implements UseCase<Input, Output> {
     constructor(
         private readonly commandBus: CommandBus,
-        private readonly queryBus: QueryBus,
     ) { }
 
     async execute(input: Input): Promise<Output> {
@@ -29,7 +28,7 @@ export class CreateCourseUsecase implements UseCase<Input, Output> {
             const response = this.commandBus.execute(new CreateCourseCommand(courseModel));
             return response
         } catch (error) {
-            console.log(error)
+            console.log("HOUSTON HAS OCURRED A PROBLEM IN CREATE COURSE (USE CASE)", error)
         }
     }
 }

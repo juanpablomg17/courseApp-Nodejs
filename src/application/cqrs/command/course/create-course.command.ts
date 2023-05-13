@@ -1,4 +1,4 @@
-import { Courses } from '../../../../infrastucture/repository/course/course-model';
+import { Courses } from '../../../../infrastucture/repository/course/course.model';
 
 export class CreateCourseCommand {
     constructor(

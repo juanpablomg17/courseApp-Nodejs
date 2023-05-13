@@ -1,14 +1,19 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString } from "class-validator";
+import { IsOptional, IsString } from "class-validator";
 
 export class GetCourseDto {
 
 
     @ApiProperty()
     @IsString()
-    id: string;
+    @IsOptional()
+    id?: string;
 
     @ApiProperty()
     @IsString()
-    name: string;
+    @IsOptional()
+    name?: string;
 }
+
+
+export type TypeGetCourseDto = GetCourseDto

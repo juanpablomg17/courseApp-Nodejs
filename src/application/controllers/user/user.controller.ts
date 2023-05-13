@@ -1,12 +1,12 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { CreateUserDto  } from '../../use-case/user/dto/create-user.dto'
 import { ApproveCourseDto } from '../../use-case/user/dto/approve-course.dto'
 import { EnrollCourseDto } from '../../use-case/user/dto/enroll-course.dto'
 
-import { GetAllUsersUseCase } from '../../use-case/user/get-user-usecase';
+import { GetUsersUseCase } from '../../use-case/user/get-user-usecase';
 import { CreateUserUseCase } from '../../use-case/user/create-user-usecase';
-import { UserDto } from 'src/application/use-case/user/dto/user.dto';
+import { GetUserDto } from 'src/application/use-case/user/dto/get-user.dto';
 
 
 @ApiBearerAuth()
@@ -14,7 +14,7 @@ import { UserDto } from 'src/application/use-case/user/dto/user.dto';
 @Controller('user')
 export class UserController {
     constructor(
-        private readonly getAllUserUseCase: GetAllUsersUseCase,
+        private readonly getAllUserUseCase: GetUsersUseCase,
         private readonly createUserUseCase: CreateUserUseCase
     ) { }
     @Post('')
@@ -23,8 +23,8 @@ export class UserController {
     }
 
     @Get('')
-    async getAllUser() {
-        return await this.getAllUserUseCase.execute();
+    async getUser(@Query() request: GetUserDto) {
+        return await this.getAllUserUseCase.execute(request);
     }
 
     // @UseGuards(JwtAuthGuardChangePass)
