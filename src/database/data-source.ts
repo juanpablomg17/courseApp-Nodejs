@@ -17,6 +17,10 @@ export const dataSourceOptions: DataSourceOptions = {
         synchronize: false,
         migrations: [process.env.TYPEORM_MIGRATIONS],
         migrationsTableName: process.env.TYPEORM_MIGRATIONS_TABLE_NAME || 'migrations',
+        ssl: {
+            ca: process.env.DB_CA,
+            rejectUnauthorized: false
+        },
 }
 
 
