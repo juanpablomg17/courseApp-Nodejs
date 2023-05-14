@@ -1,4 +1,4 @@
-import { Module, ValidationPipe } from '@nestjs/common';
+import { Module, ValidationPipe, MiddlewareConsumer, NestModule, RequestMethod } from '@nestjs/common';
 import { DataSource } from 'typeorm';
 import { APP_PIPE } from '@nestjs/core';
 import { ConfigModule } from '@nestjs/config';
@@ -9,6 +9,7 @@ import { InfrastructureModule } from './infrastucture/infrastucture.module';
 import { DataBaseModule } from './database/database.module';
 import config from './config/config';
 import { enviroments } from './config/environments';
+import { PreauthMiddleware } from './auth/preauth.middleware';
 
 @Module({
     imports: [
@@ -28,6 +29,10 @@ import { enviroments } from './config/environments';
         },
     ],
 })
-export class AppModule { 
-    constructor(private dataSource: DataSource) {}
+export class AppModule implements NestModule {
+    configure(consumer: MiddlewareConsumer) {
+        consumer.apply(PreauthMiddleware).forRoutes({
+          path: '*', method: RequestMethod.ALL
+        });
+      }
 }
