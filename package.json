@@ -39,18 +39,15 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "firebase-admin": "^11.8.0",
-    "jest-ts-auto-mock": "^2.1.0",
     "mssql": "^9.1.1",
     "pg": "^8.10.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0",
-    "ts-auto-mock": "^3.7.0",
     "ttypescript": "^1.5.15",
     "typeorm": "^0.3.16",
     "uid": "^2.0.2"
   },
   "devDependencies": {
-    "@devniel/nestjs-typeorm-testing": "^0.1.5-alpha",
     "@nestjs/cli": "^9.0.0",
     "@nestjs/schematics": "^9.0.0",
     "@nestjs/testing": "^9.0.0",
