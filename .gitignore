@@ -38,5 +38,3 @@ lerna-debug.log*
 /postgres_data
 
 .env
-
-docker-compose.yml
