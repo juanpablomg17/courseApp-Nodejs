@@ -1,36 +1,19 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Web App for Course Selection
+## Business requirements
+The present web API application was developed by JP with the aim of creating a more engaging learning environment, allowing users to choose which courses they want to take. Additionally, certain restrictions have been taken into account to ensure concentration and maximize knowledge absorption, which are as follows:
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+A user can only take one course at a time.
+A user cannot access a course that has another course as a prerequisite without having completed it beforehand.
+Through our web application, users have access to a list of available courses from which they can make their selection.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Technichal spefications
+[![N|Solid](https://herbertograca.files.wordpress.com/2018/11/100-explicit-architecture-svg.png?w=1200)](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)#:~:text=The%20hexagonal%20architecture%20divides%20a,to%20the%20traditional%20layered%20architecture.)
+For the implementation of this application, the NestJS framework for Node.js was utilized. NestJS provides a modular and scalable architecture for web applications. Additionally, the application follows the hexagonal architecture, also known as ports and adapters, which separates the business logic from the technical implementation and focuses on the problem domain.
 
-## Description
+The development approach employed was Domain-Driven Design (DDD), which emphasizes a deep understanding of the business and the modeling of domain objects. This approach results in more flexible, maintainable, and scalable software. By combining these tools and approaches, a robust and scalable application that meets the business requirements was achieved.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+In the infrastructure layer, the TypeORM framework was used for handling the database's data model. TypeORM is a TypeScript-compatible ORM that simplifies database communication and allows for intuitive operations such as querying, insertion, updating, and deletion. With TypeORM, table schemas could be defined and managed using classes and annotations. This facilitated the creation of entities, relationships, and queries, as well as the implementation of design patterns like the Repository Pattern for encapsulating data access logic.
 
-## Installation
-
-```bash
-$ npm install
-```
 
 ## Running the app
 
@@ -43,6 +26,8 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
+
+important: you need a database connection for typeorm, I used postgres sql, but you are free to decide what you want 
 ```
 
 ## Test
@@ -58,16 +43,19 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
+## Endpoints
+Once you have the app up and running, you can access the Swagger documentation to explore the available endpoints. It's important to note that all endpoints are protected and require user authentication via Firebase.
+On the http://localhost:5000/api you can see this
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+[![N|Solid](https://gcdnb.pbrd.co/images/9mAVxsjLjcVr.png?o=1)](https://swagger.io/)
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Author  - Juan Pablo meza (Flexuxs)
+- github  - [juanpablomg17](https://github.com/juanpablomg17)
+- Twitter - [@GazabonJuan](https://twitter.com/GazabonJuan)
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+[MIT licensed](LICENSE).
+
